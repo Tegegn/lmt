@@ -1,0 +1,40 @@
+server:
+  servlet:
+    context-path: /lmt-services
+
+## DataSource selector
+database:
+  type: postgresql  # Default database type (mysql or postgresql)
+
+## MySQL DataSource
+spring.datasource.mysql:
+  url: jdbc:mysql://localhost:3306/ltm_dev?useSSL=true&serverTimezone=UTC
+  username: ttegu
+  password: ttegu%PS8
+  driver-class-name: com.mysql.cj.jdbc.Driver
+
+## PostgreSQL DataSource
+spring.datasource.postgresql:
+  url: jdbc:postgresql://localhost:5432/ltm_dev
+  username: ttegu
+  password: ttegu%PS8
+  driver-class-name: org.postgresql.Driver
+
+spring.jpa:
+  show-sql: true
+  hibernate:
+    ddl-auto: update
+  properties:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQLDialect # Default dialect.  This will be overridden dynamically
+      default_schema: lmt #Option 1: Set default schema for all entities
+  # Option 2: If you want to keep the default schema as public but only specify for certain entities
+  # Don't set the default_schema property and use @Table(schema = "lmt") on specific entities
+
+# Optional: to see more details about the connection
+logging.level.org:
+  springframework:
+    jdbc:
+      core: DEBUG
+  hibernate:
+    SQL: DEBUG

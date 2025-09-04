@@ -8,11 +8,12 @@
 		<version>3.5.5</version>
 		<relativePath/>
 	</parent>
-	<groupId>com.ttf</groupId>
-	<artifactId>lmt</artifactId>
+	<groupId>com.ttf.lmt</groupId>
+	<artifactId>lmt-services</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>lmt</name>
-	<description>Demo project for Spring Boot</description>
+    <packaging>war</packaging>
+	<name>lmt-services</name>
+	<description>Lmt project</description>
 
 	<properties>
 		<java.version>21</java.version>
@@ -56,6 +57,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <!-- HikariCP (Connection Pool) -->
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
@@ -65,6 +67,7 @@
             <artifactId>mysql-connector-j</artifactId>
             <!-- <version>${mysql.version}</version> -->
         </dependency>
+        <!-- PostgreSQL Driver -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>

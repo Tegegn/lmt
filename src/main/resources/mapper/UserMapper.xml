@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ttf.lmt.mapper.UserMapper">  <!-- Replace with your actual mapper interface -->
+
+  <!-- Result Map:  Maps database columns to Java object properties -->
+  <resultMap id="userMap" type="com.ttf.lmt.entity.User">
+    <id column="id" property="id"/>
+    <result column="username" property="username"/>
+    <result column="email" property="email"/>
+      <result column="password" property="password"/>
+    <result column="created_at" property="createdAt"/>
+      <result column="updated_at" property="updatedAt"/>
+  </resultMap>
+
+  <!-- SQL Statements -->
+
+  <!-- Select User by ID -->
+  <select id="getUserById" parameterType="java.lang.Integer" resultMap="userMap">
+    SELECT id, username, password, email, created_at, updated_at
+    FROM users
+    WHERE id = #{userId}
+  </select>
+
+  <!-- Select All Users -->
+  <select id="getAllUsers" resultMap="userMap">
+      SELECT id, username, password, email, created_at, updated_at
+    FROM users
+  </select>
+
+<!--  &lt;!&ndash; Insert a New User &ndash;&gt;-->
+<!--  <insert id="insertUser" parameterType="com.example.demo.model.User">-->
+<!--    INSERT INTO users (username, email, created_at)-->
+<!--    VALUES (#{username}, #{email}, #{createdAt})-->
+<!--    <selectKey keyProperty="userId" resultType="java.lang.Integer" order="AFTER">-->
+<!--        SELECT LAST_INSERT_ID()-->
+<!--    </selectKey>-->
+<!--  </insert>-->
+
+<!--  &lt;!&ndash; Update an Existing User &ndash;&gt;-->
+<!--  <update id="updateUser" parameterType="com.example.demo.model.User">-->
+<!--    UPDATE users-->
+<!--    SET username = #{username},-->
+<!--        email = #{email}-->
+<!--    WHERE user_id = #{userId}-->
+<!--  </update>-->
+
+<!--  &lt;!&ndash; Delete a User &ndash;&gt;-->
+<!--  <delete id="deleteUser" parameterType="java.lang.Integer">-->
+<!--    DELETE FROM users-->
+<!--    WHERE user_id = #{userId}-->
+<!--  </delete>-->
+
+</mapper>
